@@ -1,5 +1,5 @@
 #include<iostream>
-#include"class_data.h"
+#include"admindata.h"
 using namespace std;
 
 string AdminPass="abc12345";
@@ -8,13 +8,30 @@ int main()
 {
     Member memberreq[20];
     Member members[50];
-    Items item[50];
     Requests item_reqs[10];
 
     int num_members=0;
-    int num_items=0;
     int user_reqs=0;
+    int num_item_req=0;
 
+    Items* item[5];
+    for (int i = 0; i < 2; i++)
+    {
+        item[i]=new PhysicalItems;
+        item[i]->quantity=30;
+    }
+    
+    for (int i = 2; i < 5; i++)
+    {
+        item[i]=new SoftwareItems;
+        item[i]->quantity=50;
+    }
+
+    item[0]->itemname="Laptop";
+    item[1]->itemname="Printer";
+    item[2]->itemname="Anydesk License";
+    item[3]->itemname="Microsoft 365 License";
+    item[4]->itemname="Windows 11 License";
 
     cout << "\t\tWelcome to ABC's Inventory\n";
     cout<<"\n\nLogin as: ";
@@ -36,12 +53,13 @@ int main()
             {
                 cout<<"Welcome to Admin Pannel\n";
                 cout<<"\n1. Check new members requests.\n";
-                cout<<"2. Remove a member.\n";
-                cout<<"3. Check Inventory.\n";
-                cout<<"4. Restock Inventory.\n";
-                cout<<"5. Check Requests.\n";
-                cout<<"6. Change Admin Password.\n";
-                cout<<"7. Exit.\n";
+                cout<<"2. Check All members.\n";
+                cout<<"3. Remove a member.\n";
+                cout<<"4. Check Inventory.\n";
+                cout<<"5. Restock Inventory.\n";
+                cout<<"6. Check Item Requests.\n";
+                cout<<"7. Change Admin Password.\n";
+                cout<<"8. Exit.\n";
                 cout<<"Enter: ";
                 
                 int admin_options;
@@ -54,19 +72,19 @@ int main()
                     break;
                 
                 case 2:
-                    /* code */
+                    check_all_members(members,num_members);
                     break;
                 
                 case 3:
-                    /* code */
+                    remove_member(members,num_members);
                     break;
                 
                 case 4:
-                    /* code */
+                    check_inventory(item,5);
                     break;
                 
                 case 5:
-                    /* code */
+                    restock_inventory(item,5);
                     break;
                 
                 case 6:
@@ -74,6 +92,10 @@ int main()
                     break;
                 
                 case 7:
+                    change_password(AdminPass);
+                    break;
+                
+                case 8:
                     /* code */
                     break;
                 
@@ -83,6 +105,9 @@ int main()
             }
         }
         break;
+
+        case 2:
+        
     
     default:
         break;
