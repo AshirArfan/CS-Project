@@ -41,7 +41,45 @@ int main()
                 cout<<"4. Restock Inventory.\n";
                 cout<<"5. Check Requests.\n";
                 cout<<"6. Change Admin Password.\n";
-                cout<<"6. Exit.\n";
+                cout<<"7. Exit.\n";
+                cout<<"Enter: ";
+                
+                int admin_options;
+                cin>>admin_options;
+
+                switch (admin_options)
+                {
+                case 1:
+                    /* code */
+                    break;
+                
+                case 2:
+                    /* code */
+                    break;
+                
+                case 3:
+                    /* code */
+                    break;
+                
+                case 4:
+                    /* code */
+                    break;
+                
+                case 5:
+                    /* code */
+                    break;
+                
+                case 6:
+                    /* code */
+                    break;
+                
+                case 7:
+                    /* code */
+                    break;
+                
+                default:
+                    break;
+                } 
             }
         }
         break;
