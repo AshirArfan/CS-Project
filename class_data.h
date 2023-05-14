@@ -23,7 +23,7 @@ class Member : public User
 {
     public:
         string username,password,req;
-        Itemstaken itmstaken[50];
+        // Itemstaken itmstaken[50];
         int num_items_taken;
 
         void get_info()

@@ -35,7 +35,7 @@ int main()
 
     cout << "\t\tWelcome to ABC's Inventory\n";
     cout<<"\n\nLogin as: ";
-    cout <<"\n1. Admin.\n2. Member\n3. Exit";
+    cout <<"\n1. Admin.\n2. Member\n3. Exit\n";
     cout<<"Enter: ";
     
     int option;
@@ -44,6 +44,7 @@ int main()
     switch (option)
     {
     case 1:
+    while(true)
         {
             cout<<"Enter Pasword: ";
             string pass;
