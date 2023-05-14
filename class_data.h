@@ -8,8 +8,12 @@ class Items;
 class PhysicalItems;
 class SoftwareItems;
 struct Requests;
-struct Itemstaken;
 
+struct itemstaken
+{
+    string name_of_item;
+    int num_items;
+};
 
 class User
 {
@@ -23,7 +27,7 @@ class Member : public User
 {
     public:
         string username,password,req;
-        // Itemstaken itmstaken[50];
+        itemstaken itmtkn[50];
         int num_items_taken;
 
         void get_info()
@@ -85,10 +89,4 @@ struct Requests
 {
     string username;
     string request;
-};
-
-struct Itemstaken
-{
-    string item_name;
-    int quantity;
 };
