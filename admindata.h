@@ -6,12 +6,12 @@ using namespace std;
 
 // Funtion Prototype
 
-void check_new_member_req();
+void check_new_member_req(Member* memberreq,int& user_req,Member* members,int& num_members);
 void check_all_members(Member* members,int& num_members);
 void remove_member(Member* members,int& num_members);
 void check_inventory(Items* item[],int num_item);
 void restock_inventory(Items* item[],int num_item);
-void check_item_req(Requests* item_reqs,int& num_item_reqs);
+void check_item_req(Requests* item_reqs,int& num_item_reqs,Member* members,int& num_members);
 void change_password(string& pass);
 
 // Functions
@@ -89,12 +89,86 @@ void check_all_members(Member* members,int& num_members)
     
 }
 
-void check_item_req(Requests* item_reqs,int& num_item_reqs)
+void check_item_req(Requests* item_reqs,int& num_item_reqs,Member* members,int& num_members)
 {
     for (int i = 0; i < num_item_reqs; i++)
     {
-        cout<<"Username: "<<item_reqs[i].username<<endl;
-        cout<<"Request: "<<item_reqs[i].request<<endl;
+        cout<<item_reqs[i];
     }
+
+    cout<<"Enter Item name: ";
+    string name;
+    cin>>name;
+
+    for (int i = 0; i < num_item_reqs; i++)
+    {
+        if(name==item_reqs[i].item_name)
+        {
+            cout<<"Do you want to approve or reject this Request(A/R): ";
+            char option;
+            cin>>option;
+            if (option=='R'){}
+            else
+            {
+                for (int j = 0; j < num_members; j++)
+                {
+                    if (item_reqs[i].username==members[j].username)
+                    {
+                        members[j].itmtkn[members[j].num_items_taken].name_of_item=item_reqs[i].item_name;
+                        members[j].itmtkn[members[j].num_items_taken].num_items=item_reqs[i].num_items;
+                        members[j].num_items_taken++;
+                        for (int k = i; k < num_item_reqs-1; k++)
+                        {
+                            item_reqs[j]=item_reqs[j+1];
+                        }
+                        num_item_reqs--;
+                        cout<<"Request Approved.\n";
+                        return;
+                    }
+                    
+                }
+                
+                
+            }
+            
+        }
+    }
+    cout<<"Item not found.\n";
+}
+
+void check_new_member_req(Member* memberreq,int& user_req,Member* members,int& num_members)
+{
+    for (int i = 0; i < user_req; i++)
+    {
+        memberreq[i].show_info();
+    }
+
+    cout<<"Enter Username: ";
+    string username;
+    cin>>username;
+
+    for (int i = 0; i < user_req; i++)
+    {
+        if(username==memberreq[i].username)
+        {
+            cout<<"Do you want to approve or reject this member(A/R): ";
+            char option;
+            cin>>option;
+            if (option=='R'){}
+            else
+            {
+                members[num_members]=memberreq[i];
+                num_members++;
+                
+            }
+            for (int j = i; j < user_req-1; j++)
+                {
+                    memberreq[j]=memberreq[j+1];
+                }
+                user_req--;
+                return;
+        }
+    }
+    
     
 }

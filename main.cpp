@@ -14,9 +14,6 @@ int main()
     int user_reqs=0;
     int num_item_req=0;
 
-    num_members=1;
-    members[0].username="ashirarfan";
-    members[0].password="ashirarfan";
 
 
     Items* item[5];
@@ -73,7 +70,7 @@ int main()
                 switch (admin_options)
                 {
                 case 1:
-                    /* code */
+                    check_new_member_req(memberreq,user_reqs,members,num_members);
                     break;
                 
                 case 2:
@@ -93,7 +90,7 @@ int main()
                     break;
                 
                 case 6:
-                    /* code */
+                    check_item_req(item_reqs,num_item_req,members,num_members);
                     break;
                 
                 case 7:
@@ -112,7 +109,7 @@ int main()
         break;
 
         case 2:
-            cout<<"1. Existing User?\n2. New User\nEnter: ";
+            cout<<"1. Existing User?\n2. New User\n3. Exit\nEnter: ";
             int memberoption;
             cin>>memberoption;
             switch (memberoption)
@@ -127,7 +124,7 @@ int main()
                     switch (member_option)
                     {
                     case 1:
-                        /* code */
+                        get_items(item_reqs,num_item_req,item,5,members,num_members);
                         break;
                     
                     case 2:
@@ -142,6 +139,10 @@ int main()
             
             case 2:
                 new_member_req(memberreq,user_reqs,members,num_members);
+                break;
+
+            case 3:
+
                 break;
 
             default:
