@@ -26,14 +26,14 @@ class User
 class Member : public User
 {
     public:
-        string username,password,req;
+        string username,password;
         itemstaken itmtkn[50];
         int num_items_taken;
 
         void get_info()
         {
-            cout<<"Enter your full name: ";
-            getline(cin,full_name);
+            cout<<"Enter your name: ";
+            cin>>full_name;
             cout<<"Enter age: ";
             cin>>age;
         }

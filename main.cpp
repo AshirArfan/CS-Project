@@ -1,5 +1,5 @@
 #include<iostream>
-#include"admindata.h"
+#include"userdata.h"
 using namespace std;
 
 string AdminPass="abc12345";
@@ -13,6 +13,11 @@ int main()
     int num_members=0;
     int user_reqs=0;
     int num_item_req=0;
+
+    num_members=1;
+    members[0].username="ashirarfan";
+    members[0].password="ashirarfan";
+
 
     Items* item[5];
     for (int i = 0; i < 2; i++)
@@ -44,7 +49,6 @@ int main()
     switch (option)
     {
     case 1:
-    while(true)
         {
             cout<<"Enter Pasword: ";
             string pass;
@@ -108,7 +112,42 @@ int main()
         break;
 
         case 2:
-        
+            cout<<"1. Existing User?\n2. New User\nEnter: ";
+            int memberoption;
+            cin>>memberoption;
+            switch (memberoption)
+            {
+            case 1:
+                if (existing_member_check(members,num_members))
+                {
+                    cout<<"Welcome to members Pannel.\n";
+                    cout<<"1. Get items\n2. Exit\nEnter: ";
+                    int member_option;
+                    cin>>member_option;
+                    switch (member_option)
+                    {
+                    case 1:
+                        /* code */
+                        break;
+                    
+                    case 2:
+                        /* code */
+                        break;
+                    
+                    default:
+                        break;
+                    }
+                }
+                break;
+            
+            case 2:
+                new_member_req(memberreq,user_reqs,members,num_members);
+                break;
+
+            default:
+                break;
+            }
+        break;
     
     default:
         break;
