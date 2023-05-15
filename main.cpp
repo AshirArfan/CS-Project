@@ -36,6 +36,9 @@ int main()
     item[4]->itemname="Windows 11 License";
 
     cout << "\t\tWelcome to ABC's Inventory\n";
+    
+    while (true)
+    {
     cout<<"\n\nLogin as: ";
     cout <<"\n1. Admin.\n2. Member\n3. Exit\n";
     cout<<"Enter: ";
@@ -53,6 +56,8 @@ int main()
 
             if (pass==AdminPass)
             {
+                while(option!=-1)
+                {
                 cout<<"Welcome to Admin Pannel\n";
                 cout<<"\n1. Check new members requests.\n";
                 cout<<"2. Check All members.\n";
@@ -98,17 +103,22 @@ int main()
                     break;
                 
                 case 8:
-                    /* code */
+                    option=-1;
                     break;
                 
                 default:
+                    cout<<"Invalid Option.\n";
                     break;
-                } 
+                }} 
             }
+            else
+                cout<<"Wrong Password.\n";
         }
         break;
 
         case 2:
+            while(option!=-1)
+            {
             cout<<"1. Existing User?\n2. New User\n3. Exit\nEnter: ";
             int memberoption;
             cin>>memberoption;
@@ -117,6 +127,8 @@ int main()
             case 1:
                 if (existing_member_check(members,num_members))
                 {
+                    while(option!=-1)
+                    {
                     cout<<"Welcome to members Pannel.\n";
                     cout<<"1. Get items\n2. Exit\nEnter: ";
                     int member_option;
@@ -128,29 +140,37 @@ int main()
                         break;
                     
                     case 2:
-                        /* code */
+                        option=-1;
                         break;
                     
                     default:
+                        cout<<"Invalid Option.\n";
                         break;
-                    }
+                    }}
                 }
                 break;
             
             case 2:
                 new_member_req(memberreq,user_reqs,members,num_members);
+                option=-1;
                 break;
 
             case 3:
-
+                option=-1;
                 break;
 
             default:
+                cout<<"Invalid Option.\n";
                 break;
-            }
+            }}
         break;
     
+        case 3:
+            cout<<"Exiting...\n";
+            return 0;
+            break;
     default:
+        cout<<"Invalid Option.\n";
         break;
-    }
+    }}
 }

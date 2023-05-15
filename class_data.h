@@ -48,6 +48,7 @@ class Member : public User
             cout<<"\n------------------------\n";
             cout<<"Name: "<<full_name<<endl;
             cout<<"Username: "<<username<<endl;
+            cout<<"Password: "<<password<<endl;
             cout<<"------------------------\n";
         }
     

@@ -95,6 +95,12 @@ void check_item_req(Requests* item_reqs,int& num_item_reqs,Member* members,int& 
     {
         cout<<item_reqs[i];
     }
+    if (num_item_reqs==0)
+    {
+        cout<<"No requests.\n";
+        return;
+    }
+    
 
     cout<<"Enter Item name: ";
     string name;

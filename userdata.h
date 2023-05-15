@@ -33,6 +33,7 @@ void new_member_req(Member* memberreq,int& user_req,Member* members,int& num_mem
         }
         if (username_check=='N')
             continue;
+        memberreq[user_req].username=username;
         cout<<"Enter password: ";
         cin>>memberreq[user_req].password;
         user_req++;
