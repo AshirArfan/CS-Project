@@ -130,27 +130,37 @@ int main()
             break;
 
             case 2:
+
                 while(option!=-1)
                 {
+            
                     system("cls");       
+            
                     cout<<"1. Existing User?\n2. New User\n3. Exit\nEnter: ";
                     int memberoption;
                     cin>>memberoption;
+            
                     switch (memberoption)
                     {
                     case 1:
+            
                         if (existing_member_check(members,num_members))
                         {
+            
                             while(option!=-1)
                             {
                                 system("cls");
+            
                                 cout<<"Welcome to members Pannel.\n";
                                 cout<<"1. Get items\n2. Exit\nEnter: ";
+            
                                 int member_option;
                                 cin>>member_option;
+            
                                 switch (member_option)
                                 {
                                 case 1:
+            
                                     get_items(item_reqs,num_item_req,item,5,members,num_members);
                                     system("pause");
                                     break;
@@ -163,14 +173,17 @@ int main()
                                     cout<<"Invalid Option.\n";
                                     system("pause");
                                     break;
+            
                             }}
                         }
                         break;
                     
                     case 2:
                         new_member_req(memberreq,user_reqs,members,num_members);
+                        
                         system("pause");
                         option=-1;
+                        
                         break;
 
                     case 3:
@@ -189,6 +202,7 @@ int main()
                 return 0;
                 break;
         default:
+        
             cout<<"Invalid Option.\n";
             system("pause");
             break;
