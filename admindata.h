@@ -91,6 +91,11 @@ void check_all_members(Member* members,int& num_members)
 
 void check_item_req(Requests* item_reqs,int& num_item_reqs,Member* members,int& num_members)
 {
+    if (item_reqs==0)
+    {
+        cout<<"No item requests.\n";
+        return;
+    }
     for (int i = 0; i < num_item_reqs; i++)
     {
         cout<<item_reqs[i];
@@ -144,6 +149,10 @@ void check_item_req(Requests* item_reqs,int& num_item_reqs,Member* members,int& 
 
 void check_new_member_req(Member* memberreq,int& user_req,Member* members,int& num_members)
 {
+    if(user_req==0)
+    {
+        cout<<"No requests.\n";
+    }
     for (int i = 0; i < user_req; i++)
     {
         memberreq[i].show_info();
